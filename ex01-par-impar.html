@@ -12,7 +12,23 @@
          Peça para o usuário informar um número inteiro
          e responda na sequência, com alert(), se esse número
          é par ou ímpar.
-      */      
+      */  
+
+      // parseInt() *TENTA* converter uma string no número
+      // INTEIRO representado por ela. Caso não consiga, o
+      // resultado será NaN (Not a Number).
+      let num = parseInt(prompt('Informe um número inteiro:'));
+
+      if(isNaN(num)) { // Se o número for NaN
+         alert('VOCÊ NÃO DIGITOU UM NÚMERO VÁLIDO!');
+      }
+      // Se o resto da divisão de num por 2 for igual a 0 (zero)
+      else if(num % 2 == 0) { // Operação de igualdade exige DOIS ==
+         alert('O número informado é PAR');
+      }
+      else {
+         alert('O número informado é ÍMPAR');
+      }
    
    </script>
 </head>

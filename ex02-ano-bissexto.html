@@ -29,7 +29,16 @@
          2002: N
          2016: S
             
-      */      
+      */
+     
+      let ano = parseInt(prompt('Informe um ano:'));
+
+      if(isNaN(ano)) {
+         alert('O ANO INFORMADO É INVÁLIDO!');
+      }
+      else if(ano % 400 == 0) { // Múltiplo de 400
+         alert ('O ano informado é BISSEXTO.')
+      }
    
    </script>
 </head>
