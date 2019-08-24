@@ -33,11 +33,18 @@
      
       let ano = parseInt(prompt('Informe um ano:'));
 
+      // A string não pode ser convertida em número
       if(isNaN(ano)) {
          alert('O ANO INFORMADO É INVÁLIDO!');
       }
-      else if(ano % 400 == 0) { // Múltiplo de 400
-         alert ('O ano informado é BISSEXTO.')
+      // Múltiplo de 400 ou (múltiplo de 100 e 
+      // (não múltiplo de 100))
+      else if(ano % 400 == 0 || (ano % 4 == 0 && 
+         !(ano % 100 == 0))) { 
+         alert ('O ano informado é BISSEXTO.');
+      }
+      else {
+         alert ('O ano informado NÃO É bissexto.');
       }
    
    </script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Página modelo</title>
+   <script>
+      'use strict'; // Modo "chato" do Javascript
+
+      let sexo = prompt('Qual o sexo do bebê (M ou F)');
+      let nome;
+
+      if(sexo != 'M' && sexo != 'F') {
+         alert('Sexo inválido');
+      }
+      else {
+         /*
+         if(sexo == 'M') {
+            nome = 'Enzo';
+         }
+         else {
+            nome = 'Valentina';
+         }
+         */
+
+         nome = sexo == 'M' ? 'Enzo' : 'Valentina';
+
+         document.write('O nome do bebê deverá ser ' + nome);
+      }
+   
+   </script>
+</head>
+<body>
+   <h1>Título da página</h1>
+   <p>Parágrafo de texto</p>  
+</body>
+</html>
