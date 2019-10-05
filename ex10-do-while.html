@@ -15,6 +15,21 @@
             Utilize do..while.
 
          */
+
+         let soma = 0, num = 0;
+
+         do {
+            
+            // Valida a entrada do usuário, aceitando apenas números válidos
+            do {
+               num = Number(prompt('Número a ser adicionado à soma:'));
+            } while (isNaN(num));
+            
+            soma += num;
+
+         } while (num != 0);
+
+         document.write('A soma dos números informados é ' + soma);
                   
       </script>
    </head>
