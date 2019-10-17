@@ -18,6 +18,9 @@
       input[type="radio"] {
          margin-right: -2px; /* Sem espaçamento à direita do botão de rádio */
       }
+      #resultado {
+         background: yellow;
+      }
    </style>
 </head>
 <body>
@@ -77,10 +80,74 @@
          let passo = parseInt(elemPasso.value);
 
          let asc = elemAsc.checked; // true ou false
+         
+         // VALIDAÇÕES
+         if(isNaN(inicio)) {
+            alert('O início não é um número válido!');
+            elemInicio.focus();
+            return; // Sai da função e não executa abaixo
+         }
+
+         if(isNaN(fim)) {
+            alert('O fim não é um número válido!');
+            elemFim.focus();
+            return;
+         }
+         
+         if(passo <= 0 || isNaN(passo)) {
+            alert('Passo inválido!');
+            elemPasso.focus();
+            return; 
+         }
+         
+         if(asc && inicio > fim) {
+            alert('O início não pode ser maior que o fim!');
+            elemInicio.focus();
+            return;
+         }
+
+         if((! asc) && inicio < fim) {
+            alert('O início não pode ser menor que o fim!');
+            elemInicio.focus();
+            return;
+         }
 
          // NÃO SE ESQUEÇA DE LIMPAR A DIV DE RESULTADOS
          // ANTES DE EXIBIR OUTRO RESULTADO!
          elemResultado.innerText = '';
+
+         // FINALMENTE, OS LOOPS FOR
+
+         let parag;
+
+         if(asc) { // Se ascendente
+            // É possível declarar a variável contadora
+            // diretamente no início do for
+            for(let i = inicio; i <= fim; i += passo /* incremento */) {
+               // Preenche a div de resultado
+               //elemResultado.innerHTML += `<p>${i}</p>`;
+               
+               // Cria um novo elemento - SEMPRE no document!
+               parag = document.createElement('p');
+               
+               // Atribui conteúdo ao novo elemento
+               parag.innerText = i;
+               
+               // Dá um pai (elemResultado) ao novo elemento,
+               // e fica sendo o último filho dele
+               elemResultado.appendChild(parag);
+               //document.body.appendChild(parag);
+            }
+         }
+         else { // Se descendente
+            for(let i = inicio; i >= fim; i -= passo /* decremento */) {
+               // Preenche a div de resultado
+               //elemResultado.innerHTML += `<p>${i}</p>`;
+               parag = document.createElement('p');
+               parag.innerText = i;
+               elemResultado.appendChild(parag);
+            }
+         }
 
       }
    
