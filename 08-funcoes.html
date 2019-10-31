@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Página modelo</title>
+   <script>
+      'use strict'; // Modo "chato" do Javascript
+
+      // Declaração de função
+      // Função determinística: as mesmas entradas geram
+      // SEMPRE as mesmas saídas
+      function fatorial(num) {
+         let resultado = 1;
+         for(let i = 2; i <= num; i++) {
+            resultado *= i;
+         }
+         return resultado;
+      }
+
+      let fat = fatorial(6); // Chamada de função 
+      document.write(fat);
+
+      document.write('<hr>');
+
+      document.write(fatorial(5)); // Chamada de função
+
+      // Declaração de função
+      // Função não determinística: chamadas com dados
+      // iguais geram saídas diferentes
+      function megasena() { // Função SEM parâmetros
+         let num = Math.floor(Math.random() * 60 + 1);
+         return num;
+      }
+
+      alert(megasena());
+      alert(megasena());
+      alert(megasena());
+      alert(megasena());
+      alert(megasena());
+      alert(megasena());
+
+      document.write('<hr>');
+
+      let a = 3, b = 6;
+
+      // Chamada de função antes da declaração da função
+      document.write(`${a} elevado a ${b} é ${potencia(a, b)}`);
+
+      // Função com dois parâmetros ou argumentos
+      function potencia(base, expoente) {
+         return base ** expoente;
+      }
+
+      // Função sem valor de retorno
+      function msgErro(msg) {
+         let mensagem = 'ERRO CATASTRÓFICO:\n'; // \n: Quebra de linha
+         mensagem += msg + '\n';
+         mensagem += 'Contate o suporte técnico pelo telefone 1234-5678.'
+         alert(mensagem);
+      }
+
+      msgErro('A temperatura do processador está muito alta.');
+      msgErro('Este HD tem muitos setores defeituosos.');
+
+      // Função com parâmetros opcionais
+      // Se o terceiro parâmetro não for passado,
+      // forma assume o valor 'r'.
+      // Parâmetros opcionais só podem vir AO FINAL
+      // da lista de argumentos
+      function area (base, altura, forma = 'r') {
+         switch(forma) {
+            case 'r': // retângulo
+               return base * altura;
+               break;
+            case 't': // triângulo
+               return base * altura / 2;
+               break;
+            case 'e': // elipse
+               return base * altura * Math.PI;
+               break;
+            default:
+               alert('Forma inválida');
+         }
+      }
+
+      document.write('<hr>');
+
+      document.write(area(3, 2, 'r') + '<br>');
+      document.write(area(3, 2, 't') + '<br>');
+      document.write(area(3, 2, 'e') + '<br>');
+      document.write(area(3, 2) + '<br>'); // A forma não foi passada, assume 'r'
+  
+   </script>
+</head>
+<body>
+   <h1>Título da página</h1>
+   <p>Parágrafo de texto</p>  
+</body>
+</html>
